@@ -9,35 +9,17 @@
 //"recede"   =>  "()()()"
 //"Success"  =>  ")())())"
 
+ function duplicateEncode(word){
+   var string = "";
+   var lowerCase = word.toLowerCase();
+   for (var i = 0;i < lowerCase.length;i++){
+     if (lowerCase.indexOf(lowerCase[i]) === lowerCase.lastIndexOf(lowerCase[i])){
+       string += "(";
+     }else {
+       string += ")";
+     }
+   }
+   return string;
+ }
+ console.log(duplicateEncode("Success"));
 
-
-// function duplicateEncode(word){
-
-//     const letters ={};
-
-// for(let i in word){
-
-//      const char = word[i];
-//      if(!letters[char]){
-//          letters[char] = 0
-//      }
-     
-
-//      letters[char]++;
-// }
-// return letters;
-
-// }
-// console.log(duplicateEncode('recede'))
-
-
-function duplicateEncode(word){
-
-    let arr = [...word].map(letter =>
-        word.match(new RegExp(letter, "ig")).length === 1 ? "(" : ")"
-      ).join("");
-      return arr;
-
-}
-
-console.log(duplicateEncode('Success'));
